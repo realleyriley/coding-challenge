@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Coding Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Your goal is to create a small react application using the [SpaceX open GraphQL api](https://api.spacex.land/graphql/). You can write the components yourself, or you can use a component library like [AntDesign](https://ant.design/components/overview/).
 
-## Available Scripts
+Do not to spend more than 6hrs on this. If you don't finish everything, that is okay! We just want to know how far you got, where you had trouble, and how proficient you are at your craft. If you get stuck, write a little note in the in the `NOTES.md` file about it, and move on. If you have design questions: (for example: What format should I display the date in?) just use your best judgement.
 
-In the project directory, you can run:
+As far as the design of the application goes. You can do whatever you want. Multiple pages, 1 long page, modals and drawers... whatever you think will make the information the most useful. Feel free to make it your own.
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [ ] clone this repo
+- [ ] create a branch with you name as the branch name
+  - everything you do should take place in this branch.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Application Requirements
 
-### `npm test`
+- [ ] a user can see a list of "launches" including the following information about the launch:
+  - [ ] id
+  - [ ] details
+  - [ ] launch success
+  - [ ] launch date
+  - [ ] links
+    - [ ] images from flickr
+    - [ ] link to video
+  - [ ] the rocket used
+    - [ ] rocket name
+    - [ ] rocket type
+- [ ] a user can create a user with a `name` and `twitter` handle
+- [ ] a user can search of "users"
+  - search can use any level "opperation" (ie: `_eq`, `_like`, `_similar`)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Extra Credit.
 
-### `npm run build`
+- [ ] paginate the results of one of the searches (launches or users)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Submitting:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [ ] submit a pull-request in github (to master) for you branch.
+- [ ] email us when you are done!
