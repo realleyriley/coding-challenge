@@ -6,6 +6,8 @@ Do not to spend more than 6hrs on this. If you don't finish everything, that is 
 
 As far as the design of the application goes. You can do whatever you want. Multiple pages, 1 long page, modals and drawers... whatever you think will make the information the most useful. Feel free to make it your own.
 
+If you aren't familiar with `create-react-app`, [check it out here](https://create-react-app.dev/)
+
 ## Getting Started
 
 - [ ] clone this repo
