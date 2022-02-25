@@ -13,6 +13,10 @@ If you aren't familiar with `create-react-app`, [check it out here](https://crea
 - [ ] fork this repo
 - [ ] create a branch with your name as the branch name
   - everything you do should take place in this branch.
+  - to start the app, (and `hot-module-replacement`) run
+  ```
+  $ npm run start
+  ```
 
 ## Application Requirements
 
