@@ -14,7 +14,7 @@ As far as the design of the application goes. You can do whatever you want. Mult
 
 ## Application Requirements
 
-- [ ] a user can see a list of "launches" including the following information about the launch:
+- [ ] I can see a list of "launches" including the following information about the launch:
   - [ ] id
   - [ ] details
   - [ ] launch success
@@ -25,12 +25,13 @@ As far as the design of the application goes. You can do whatever you want. Mult
   - [ ] the rocket used
     - [ ] rocket name
     - [ ] rocket type
-- [ ] a user can create a user with a `name` and `twitter` handle
-- [ ] a user can search of "users"
-  - search can use any level "opperation" (ie: `_eq`, `_like`, `_similar`)
+- [ ] I can search the list of launches
+  - NOTE: search can use any level "opperation" (ie: `_eq`, `_like`, `_similar`)
 
 ## Extra Credit.
 
+- [ ] I can **create** a user with a `name` and `twitter` handle
+- [ ] I can **search** for "users"
 - [ ] paginate the results of one of the searches (launches or users)
 
 ## Submitting:
