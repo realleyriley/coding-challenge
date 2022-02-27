@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useQuery, gql } from '@apollo/client';
 import LaunchCard from './LaunchCard';
 import './styles.css'
+import LaunchSearch from './LaunchSearch';
 
 const LaunchInfo = (props) => {
     // make api call
-    const q = gql`{
-        launchesPast(limit: 3) {
+    const initialParams = ''
+    const [launchQueryParams, setLaunchQueryParams] = useState(initialParams)
+    const query = gql`{
+        launchesPast(limit: 4, find: {${launchQueryParams}}) {
           links {
             video_link
             flickr_images
@@ -23,16 +26,13 @@ const LaunchInfo = (props) => {
       }
       `
 
-    const { data: launches } = useQuery(q)
+    const { data: launches } = useQuery(query)
 
-    if (launches) {
-        console.log(typeof (launches));
-        console.log(launches.launchesPast.length);
-    }
 
     return (
         <div>
             <h1>Space X Past Rocket Launches 🚀</h1>
+            <LaunchSearch setLaunchQueryParams={setLaunchQueryParams} />
             <div className='margin-bottom'>
                 {launches ?
                     launches.launchesPast.map((l) => <LaunchCard launch={l} />)
