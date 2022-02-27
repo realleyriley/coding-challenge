@@ -1,0 +1,8 @@
+.margin-bottom > div {
+    margin-bottom: 12px;
+}
+
+.launchcard-title {
+    display: flex;
+    justify-content: space-between;
+}
