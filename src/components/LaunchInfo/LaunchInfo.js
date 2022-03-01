@@ -40,18 +40,18 @@ const LaunchInfo = (props) => {
     }, [launchQueryParams])
 
     return (
-        <div>
+        <div className='wrapper'>
             <h1>Space X Past Rocket Launches 🚀</h1>
-            <LaunchSearch setLaunchQueryParams={setLaunchQueryParams} />
+            <div className="buttons-div">
+                <LaunchSearch setLaunchQueryParams={setLaunchQueryParams} />
+            </div>
             <div className='margin-bottom'>
                 {launches ?
                     launches.launchesPast.map((l) => <LaunchCard launch={l} />)
                     : <LaunchCard launch={null} />
                 }
             </div>
-            <div>
-                <Pagination pageSize={pageSize} pageSizeOptions={[1, 2, 4, 10, 20, 50, 100]} current={pageNum} total={100} onChange={(newPageNum) => setPageNum(newPageNum)} onShowSizeChange={(newPageSize) => setPageSize(newPageSize)} />
-            </div>
+            <Pagination pageSize={pageSize} pageSizeOptions={[1, 2, 4, 10, 20, 50, 100]} current={pageNum} total={100} onChange={(newPageNum) => setPageNum(newPageNum)} onShowSizeChange={(newPageSize) => setPageSize(newPageSize)} />
         </div>
     )
 }
