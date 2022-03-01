@@ -5,6 +5,11 @@
     align-items: center;
 }
 
+
+.margin-bottom {
+    width: 100%;
+}
+
 .margin-bottom > div {
     margin-bottom: 12px;
     /* max-width: 900px; */
@@ -34,7 +39,7 @@
 
 .buttons-div {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     width: 100%;
     margin-bottom: 12px;
 }

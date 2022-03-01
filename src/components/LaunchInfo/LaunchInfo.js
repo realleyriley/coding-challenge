@@ -4,6 +4,7 @@ import LaunchCard from './LaunchCard';
 import './styles.css'
 import LaunchSearch from './LaunchSearch';
 import { Pagination } from 'antd';
+import UserCRUD from './UserCRUD';
 
 const DEFAULT_PAGE_NUM = 1
 const DEFAULT_PAGE_SIZE = 2
@@ -43,6 +44,7 @@ const LaunchInfo = (props) => {
         <div className='wrapper'>
             <h1>Space X Past Rocket Launches 🚀</h1>
             <div className="buttons-div">
+                <UserCRUD />
                 <LaunchSearch setLaunchQueryParams={setLaunchQueryParams} />
             </div>
             <div className='margin-bottom'>
@@ -51,7 +53,7 @@ const LaunchInfo = (props) => {
                     : <LaunchCard launch={null} />
                 }
             </div>
-            <Pagination pageSize={pageSize} pageSizeOptions={[1, 2, 4, 10, 20, 50, 100]} current={pageNum} total={100} onChange={(newPageNum) => setPageNum(newPageNum)} onShowSizeChange={(newPageSize) => setPageSize(newPageSize)} />
+            <Pagination pageSize={pageSize} pageSizeOptions={[1, 2, 4, 10, 20, 50, 100]} current={pageNum} total={100} onChange={(newPageNum) => setPageNum(newPageNum)} onShowSizeChange={(current, newPageSize) => setPageSize(newPageSize)} />
         </div>
     )
 }

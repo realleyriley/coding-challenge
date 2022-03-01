@@ -1,4 +1,4 @@
-import { Form, Button, Drawer, Input, Select } from "antd"
+import { Form, Button, Drawer, Input, Select, Modal } from "antd"
 import { useState } from "react"
 
 const { Option } = Select;
@@ -10,8 +10,8 @@ const tailLayout = {
     },
 };
 
-const LaunchSearch = ({ setLaunchQueryParams }) => {
-    const [drawerVisible, setDrawerVisible] = useState(false)
+const UserCRUD = () => {
+    const [modalVisible, setModalVisible] = useState(false)
 
     const [form] = Form.useForm();
 
@@ -23,20 +23,22 @@ const LaunchSearch = ({ setLaunchQueryParams }) => {
                 query += key + ': "' + value + '",'
             }
         }
-        setLaunchQueryParams(query)
-        setDrawerVisible(false)
+        // setLaunchQueryParams(query)
+        // setDrawerVisible(false)
     };
 
     const onReset = () => {
         form.resetFields();
     };
 
+    const closeModal = () => setModalVisible(false)
+
     return (
         <>
-            <Button type='primary' size='large' onClick={() => setDrawerVisible(true)}>
-                Search with Filters
+            <Button type='primary' size='large' onClick={() => setModalVisible(true)}>
+                Add, Search, or Delete Users
             </Button>
-            <Drawer title='Search Launch History' visible={drawerVisible} onClose={() => setDrawerVisible(false)}>
+            <Modal title='Search Launch History' visible={modalVisible} onCancel={closeModal} onOk={closeModal}>
                 <Form form={form} name="control-hooks" onFinish={onFinish}>
                     <Form.Item
                         name="rocket_name"
@@ -53,16 +55,16 @@ const LaunchSearch = ({ setLaunchQueryParams }) => {
 
                     <Form.Item {...tailLayout}>
                         <Button type="primary" htmlType="submit">
-                            Submit
+                            Search
                         </Button>
                         <Button htmlType="button" onClick={onReset}>
                             Reset
                         </Button>
                     </Form.Item>
                 </Form>
-            </Drawer>
+            </Modal>
         </>
     )
 }
 
-export default LaunchSearch
+export default UserCRUD
