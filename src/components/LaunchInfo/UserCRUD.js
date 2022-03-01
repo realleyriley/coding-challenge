@@ -1,3 +1,4 @@
+import { gql, useQuery, useMutation } from "@apollo/client";
 import { Form, Button, Drawer, Input, Select, Modal } from "antd"
 import { useState } from "react"
 
@@ -12,59 +13,91 @@ const tailLayout = {
 
 const UserCRUD = () => {
     const [modalVisible, setModalVisible] = useState(false)
-
-    const [form] = Form.useForm();
+    const [addUserForm] = Form.useForm();
+    const [queryParams, setQueryParams] = useState('')
 
     const onFinish = (rawValues) => {
-        console.log(rawValues);
-        var query = ''
+        var queryParams = ''
         for (const [key, value] of Object.entries(rawValues)) {
             if (value) {
-                query += key + ': "' + value + '",'
+                queryParams += key + ': "' + value + '", '
             }
         }
-        // setLaunchQueryParams(query)
-        // setDrawerVisible(false)
+
+        setQueryParams(queryParams)
     };
 
     const onReset = () => {
-        form.resetFields();
+        setQueryParams('')
+        addUserForm.resetFields();
     };
 
-    const closeModal = () => setModalVisible(false)
+    const closeModal = () => {
+        setQueryParams('')
+        setModalVisible(false)
+        addUserForm.resetFields()
+    }
 
     return (
         <>
             <Button type='primary' size='large' onClick={() => setModalVisible(true)}>
-                Add, Search, or Delete Users
+                Add Users
             </Button>
             <Modal title='Search Launch History' visible={modalVisible} onCancel={closeModal} onOk={closeModal}>
-                <Form form={form} name="control-hooks" onFinish={onFinish}>
-                    <Form.Item
-                        name="rocket_name"
-                        label="Rocket Name"
-                    >
-                        <Input />
-                    </Form.Item>
-                    <Form.Item name="launch_success" label="Launch Success" >
-                        <Select allowClear>
-                            <Option value="true">True</Option>
-                            <Option value="false">False</Option>
-                        </Select>
-                    </Form.Item>
+                <div id='add user form'>
+                    <Form form={addUserForm} name="control-hooks" onFinish={onFinish}>
+                        <Form.Item name="name" label="Name" rules={[{ required: true, message: 'Please enter a name for the user' }]}>
+                            <Input />
+                        </Form.Item>
+                        <Form.Item name="twitter" label="Twitter Handle" rules={[{ required: true, message: 'Please enter a twitter username' }]}>
+                            <Input />
+                        </Form.Item>
 
-                    <Form.Item {...tailLayout}>
-                        <Button type="primary" htmlType="submit">
-                            Search
-                        </Button>
-                        <Button htmlType="button" onClick={onReset}>
-                            Reset
-                        </Button>
-                    </Form.Item>
-                </Form>
+                        <Form.Item {...tailLayout}>
+                            <Button type="primary" htmlType="submit">
+                                Add
+                            </Button>
+                            <Button htmlType="button" onClick={onReset}>
+                                Reset
+                            </Button>
+                        </Form.Item>
+                    </Form>
+                </div>
+                {queryParams && (
+                    <div>
+                        <QueryResults queryParams={queryParams} />
+                    </div>
+                )}
             </Modal>
         </>
     )
+}
+
+const QueryResults = ({ queryParams }) => {
+    const queryString = gql`
+        mutation {
+            insert_users(objects: {${queryParams}}) {
+                affected_rows
+            }
+        }
+    `
+
+    const [mutation, { data, loading, error }] = useMutation(queryString)
+    console.log(mutation);
+    console.log(data, loading, error)
+
+    return (
+        <div>
+            {loading ? (
+                "loading"
+            ) : error ? (
+                error.message
+            ) : (
+                "success" + { data }
+            )}
+        </div>
+    )
+
 }
 
 export default UserCRUD

@@ -16,11 +16,10 @@ const LaunchSearch = ({ setLaunchQueryParams }) => {
     const [form] = Form.useForm();
 
     const onFinish = (rawValues) => {
-        console.log(rawValues);
         var query = ''
         for (const [key, value] of Object.entries(rawValues)) {
             if (value) {
-                query += key + ': "' + value + '",'
+                query += key + ': "' + value + '", '
             }
         }
         setLaunchQueryParams(query)
@@ -45,7 +44,7 @@ const LaunchSearch = ({ setLaunchQueryParams }) => {
                         <Input />
                     </Form.Item>
                     <Form.Item name="launch_success" label="Launch Success" >
-                        <Select allowClear>
+                        <Select allowClear placeholder="this field doesn't work">
                             <Option value="true">True</Option>
                             <Option value="false">False</Option>
                         </Select>
