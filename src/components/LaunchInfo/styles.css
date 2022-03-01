@@ -1,8 +1,25 @@
 .margin-bottom > div {
     margin-bottom: 12px;
+    max-width: 900px;
 }
 
 .launchcard-title {
     display: flex;
     justify-content: space-between;
+}
+
+.card-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.image-carousel {
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+    overflow: auto;
+}
+
+.image-carousel > div > img {
+    width: unset;
 }
